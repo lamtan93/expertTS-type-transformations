@@ -2,7 +2,11 @@ import { Equal, Expect } from "../helpers/type-utils";
 
 type Route = "/" | "/about" | "/admin" | "/admin/users";
 
-type RoutesObject = unknown;
+//type keys = Pick<Route, "/">;
+
+type RoutesObject = {
+  [Key in Route]: Key;
+}
 
 type tests = [
   Expect<

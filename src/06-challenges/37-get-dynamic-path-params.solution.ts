@@ -11,6 +11,7 @@ type ExtractPathParams<TPath extends string> = {
     : never]: string;
 };
 
+
 type tests = [
   Expect<Equal<ExtractPathParams<UserPath>, { id: string }>>,
   Expect<

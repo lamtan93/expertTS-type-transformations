@@ -1,6 +1,7 @@
+import { type } from "os";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export type Event =
+export type MyEvent =
   | {
       type: "click";
       event: MouseEvent;
@@ -14,6 +15,6 @@ export type Event =
       event: KeyboardEvent;
     };
 
-type ClickEvent = unknown;
+type ClickEvent = Extract<MyEvent, {type: "click"}>
 
 type tests = [Expect<Equal<ClickEvent, { type: "click"; event: MouseEvent }>>];

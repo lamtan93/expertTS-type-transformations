@@ -4,7 +4,8 @@ type BreadType = "rye" | "brown" | "white";
 
 type Filling = "cheese" | "ham" | "salami";
 
-type Sandwich = unknown;
+type Sandwich = `${BreadType} sandwich with ${Filling}`;
+//type Sandwich = `${Extract<BreadType, `${string}`>} sandwich with ${Extract<Filling, `${string}`>}`;
 
 type tests = [
   Expect<

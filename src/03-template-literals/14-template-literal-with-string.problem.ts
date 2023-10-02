@@ -1,10 +1,10 @@
-type Route = unknown;
+type Route = `/${string}`;
 
 export const goToRoute = (route: Route) => {};
 
 // Should succeed:
 
-goToRoute("/users");
+goToRoute("/users/1");
 goToRoute("/");
 goToRoute("/admin/users");
 

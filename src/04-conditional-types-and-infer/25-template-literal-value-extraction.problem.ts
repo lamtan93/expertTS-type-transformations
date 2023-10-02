@@ -1,4 +1,5 @@
 import { Equal, Expect } from "../helpers/type-utils";
+import { S } from "ts-toolbelt";
 
 type Names = [
   "Matt Pocock",
@@ -8,7 +9,14 @@ type Names = [
   "BB King",
 ];
 
-type GetSurname<T> = unknown;
+
+type GetSurname<T> = T extends `${string} ${infer prenom}` ? prenom : never;
+
+//2ème méthode avec ts-toolbelt pour split
+
+//type GetSurname<T> = T extends Names[number] ? S.Split<T, ' '>[1] : never;
+
+type test = GetSurname<Names[1]>
 
 type tests = [
   Expect<Equal<GetSurname<Names[0]>, "Pocock">>,

@@ -11,7 +11,16 @@ const makeQuery = (
   },
 ) => {};
 
-type MakeQueryParameters = unknown;
+type MakeQueryParameters = Parameters<typeof makeQuery>;
+
+// const requestParamURL: MakeQueryParameters[0] = "https://google.com";
+// const requestParamsOpts: MakeQueryParameters[1] = {
+//   method: 'string | undefined',
+//   headers: {
+//       '[key: string]': 'string'
+//   },
+//   body: 'string'
+// }
 
 type tests = [
   Expect<

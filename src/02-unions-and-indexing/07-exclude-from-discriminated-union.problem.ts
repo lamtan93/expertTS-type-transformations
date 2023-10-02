@@ -1,3 +1,4 @@
+import { type } from 'os';
 import { Equal, Expect } from "../helpers/type-utils";
 
 export type Event =
@@ -14,7 +15,7 @@ export type Event =
       event: KeyboardEvent;
     };
 
-type NonKeyDownEvents = unknown;
+type NonKeyDownEvents = Exclude<Event, {type: "keydown"}>;
 
 type tests = [
   Expect<

@@ -6,7 +6,17 @@ interface FruitMap {
   orange: "orange";
 }
 
-type TransformedFruit = unknown;
+type TransformedFruit = {
+  [K in keyof FruitMap]: `${K}:${FruitMap[K]}`
+}[keyof FruitMap];
+
+
+//OU:
+//type TupleFromValue<T extends keyof FruitMap> = `${T}:${FruitMap[T]}`;
+
+// type TransformedFruit = {
+//   [K in keyof FruitMap]: TupleFromValue<FruitMap>
+// }[keyof FruitMap];
 
 type tests = [
   Expect<
