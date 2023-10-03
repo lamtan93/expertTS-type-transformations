@@ -8,11 +8,13 @@ export const fakeDataDefaults = {
   ID: "id",
 };
 
-export type StringType = unknown;
-export type IntType = unknown;
-export type FloatType = unknown;
-export type BooleanType = unknown;
-export type IDType = unknown;
+type getTypeGeneric<K extends keyof typeof fakeDataDefaults> = typeof fakeDataDefaults[K];
+
+export type StringType = getTypeGeneric<"String">;
+export type IntType = getTypeGeneric<"Int">;
+export type FloatType = getTypeGeneric<"Float">;
+export type BooleanType = getTypeGeneric<"Boolean">;
+export type IDType = getTypeGeneric<"ID">;
 
 type tests = [
   Expect<Equal<StringType, string>>,

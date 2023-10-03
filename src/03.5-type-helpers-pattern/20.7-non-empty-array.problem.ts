@@ -1,4 +1,5 @@
-type NonEmptyArray = unknown;
+//Kiểm tra tableau, array không trống
+type NonEmptyArray<T> = [T, ...T[]];
 
 export const makeEnum = (values: NonEmptyArray<string>) => {};
 

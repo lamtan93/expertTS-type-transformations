@@ -5,13 +5,13 @@ const testingFrameworks = {
     label: "Vitest",
   },
   jest: {
-    label: "Jest",
+    label: "Jest",  
   },
   mocha: {
     label: "Mocha",
   },
 };
 
-type TestingFramework = unknown;
+type TestingFramework = keyof typeof testingFrameworks;
 
 type tests = [Expect<Equal<TestingFramework, "vitest" | "jest" | "mocha">>];

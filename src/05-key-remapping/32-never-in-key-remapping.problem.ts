@@ -8,7 +8,13 @@ interface Example {
   groupId: string;
 }
 
-type OnlyIdKeys<T> = unknown;
+// type OnlyIdKeys<T> = {
+//   [K in keyof T as K extends "id" | `${string}Id` ? K : never]:  T[K]
+// };
+
+//My solution:
+type OnlyIdKeys<T> = 
+Record<Extract<keyof T,  "id" | `${string}Id`>, string> 
 
 type tests = [
   Expect<

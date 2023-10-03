@@ -1,3 +1,4 @@
+import { Router } from "express";
 import { Equal, Expect } from "../helpers/type-utils";
 
 type Route =
@@ -12,7 +13,14 @@ type Route =
   | { route: "/admin"; search: {} }
   | { route: "/admin/users"; search: {} };
 
-type RoutesObject = unknown;
+//Powerful(:y)
+type RoutesObject = {
+  [K in Route as K["route"]] : K["search"]
+};
+
+// type RoutesObject = {
+//   [K in Route["route"]] : Extract<Route, {route: K}>["search"]
+// }
 
 type tests = [
   Expect<
